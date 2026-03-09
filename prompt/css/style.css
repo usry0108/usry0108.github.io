@@ -339,6 +339,7 @@ header {
 .footer-001 p {
   color: var(--white);
   font-weight: 800;
+  text-align: center;
 }
 
 .footer-001__list {
