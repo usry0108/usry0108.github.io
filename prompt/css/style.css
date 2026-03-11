@@ -38,9 +38,9 @@ body::before {
 
   /* 背景画像の設定はそのまま移植 */
   background-image: url(../img/back-img.jpg);
-  background-attachment: fixed;
   background-size: cover;
   background-position: center;
+  /* background-attachment: fixed; はiPhone Safariと相性が悪いため削除 */
 }
 
 a {
