@@ -18,7 +18,25 @@ body {
   font-family: "Quicksand", "M PLUS Rounded 1c";
   font-size: 16px;
   max-width: 100%;
-  /* 背景画像 */
+}
+
+/* 
+ スマホ（特にiPhoneのSafari）で背景を固定するための記述（先生より）
+ iPhoneでは「background-attachment: fixed;」が効きにくいという仕様があります。
+ そのため、 body の背景に直接指定するのではなく、
+ 擬似要素（::before）を使って「画面サイズの固定された一枚絵」を作り、一番下に敷き詰めています。
+*/
+body::before {
+  content: "";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1; /* 他の要素の邪魔にならないよう、一番奥の設定値（マイナス）にする */
+
+  /* 背景画像の設定はそのまま移植 */
   background-image: url(../img/back-img.jpg);
   background-attachment: fixed;
   background-size: cover;
