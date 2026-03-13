@@ -1,0 +1,680 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Sawarabi+Mincho&display=swap");
+
+/* -----
+全体の設定
+----- */
+
+:root {
+  --white: #f6f6f6;
+  --black: #333;
+  --pink: #ffe3e3;
+  --blue: #93b5c6;
+  --sub1: #c9ccd5;
+  --sub2: #e4d8dc;
+}
+
+body {
+  background-color: var(--white);
+  color: var(--black);
+  font-family: "Cinzel", "Sawarabi Mincho", sans-serif;
+  font-size: 16px;
+  max-width: 100%;
+  letter-spacing: 0.2em;
+  line-height: 1.6;
+}
+
+a {
+  color: var(--pink);
+}
+
+h1 {
+  color: var(--black);
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+
+h2 {
+  padding: 0 0.4em 0.2em;
+  border-bottom: 3px solid var(--blue);
+  color: var(--black);
+  margin-bottom: 25px;
+}
+
+h3 {
+  display: flex;
+  align-items: center;
+  padding: 0.3em 0.5em;
+  background-color: var(--sub1);
+  color: var(--black);
+  margin-bottom: 25px;
+}
+
+em {
+  font-weight: 500;
+  background: linear-gradient(transparent 50%, #ffe3e3 50%);
+}
+
+strong {
+  background-color: var(--sub2);
+  padding: 0.3em;
+  font-size: 0.8em;
+}
+
+p {
+  margin-bottom: 25px;
+}
+
+.inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* レスポンシブ */
+
+@media (max-width: 768px) {
+  .inner {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+}
+
+/* ーーーーー
+ヘッダーここから
+ーーーーー */
+
+header {
+  background-color: var(--blue);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 25px;
+  margin-bottom: 50px;
+  /* 背景画像 */
+  background-image: url(../img/003.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.top {
+  display: flex;
+  background-color: rgba(246, 246, 246, 0.7);
+  padding: 1.5em;
+  border-radius: 15px;
+}
+
+/* プロフィール画像 */
+
+.circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%; /* 円形にする */
+  position: relative; /* 基準値とする */
+  overflow: hidden; /* はみ出た部分を非表示 */
+  flex-shrink: 0; /* flexを指定した親要素の中で、この要素が縮まないようにする */
+  box-shadow: 3px 3px 3px;
+  border: solid var(--white);
+}
+
+.circle img {
+  position: absolute; /* 相対位置に指定 */
+  top: 0;
+  left: 0;
+  width: auto;
+  height: 100%;
+  object-fit: cover; /* 画像の表示サイズを調整 ※IE非対応 */
+}
+
+/* アバウト文字 */
+
+.top-text {
+  margin-left: 1em;
+}
+
+/* SNSリスト */
+
+.header_list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0 1.5em;
+  list-style-type: none;
+  /* padding: 0.5em; */
+}
+
+/* ボタン */
+
+.button-1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  margin: 0 auto;
+  padding: 0.5em;
+  border: 1px solid var(--black);
+  border-radius: 5px;
+  color: var(--black);
+  background-color: rgba(0, 0, 0, 0);
+  font-size: 1em;
+}
+
+.button-1:hover {
+  border: none;
+  background-color: var(--blue);
+  color: var(--white);
+  font-weight: 600;
+}
+
+/* タブレット表示 */
+@media (max-width: 768px) {
+  .header_list {
+    gap: 0 0.5em;
+  }
+  .button-1 {
+    width: 80px;
+    font-size: 0.7em;
+  }
+}
+
+/* スマホ表示（画面幅500px以下）の時は縦並びにする */
+@media (max-width: 500px) {
+  header {
+    position: relative;
+    height: 100vh;
+  }
+
+  .top {
+    width: 85%;
+    margin: auto;
+    flex-direction: column; /* 横並びのルールを上書きして、縦並びに変更する */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* 自身の半分だけ戻す */
+  }
+
+  .circle {
+    margin: 0 auto;
+  }
+
+  .top-text {
+    margin-left: auto;
+    margin-top: 3em;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 900;
+  }
+
+  .header_list {
+    flex-direction: column;
+  }
+
+  .header_list li {
+    margin-bottom: 1.5em;
+  }
+
+  .button-1 {
+    width: 120px;
+    font-size: 1em;
+  }
+}
+
+/* ーーーーー
+メインここから
+ーーーーー */
+
+section {
+  margin-bottom: 100px;
+}
+
+/* スマホ表示 */
+@media (max-width: 500px) {
+  section {
+    margin-bottom: 65px;
+  }
+}
+
+/* アニメーション魔法群 */
+
+.fade-in {
+  opacity: 0; /* 最初は透明にしておく */
+  transform: translateY(30px); /* 少し下（30px）に沈めておく */
+  transition:
+    opacity 1s,
+    transform 1s; /* 1秒かけて「透明度」と「位置」をゆっくり変化させる */
+}
+
+.fade-in.is-active {
+  opacity: 1; /* 完全に見えるようにする */
+  transform: translateY(
+    0
+  ); /* 沈めた位置から元の位置（0）にフワッと浮き上がらせる */
+}
+
+/* ーーーーー
+使用しているAI
+ーーーーー */
+
+/* AIリスト */
+
+.ai-list .list {
+  display: flex;
+}
+.ai-list .list dt,
+.ai-list .list dd {
+  padding: 5px; /* dtとdd間のスペース */
+}
+
+/* dt（日付部分）の横幅を固定して、隣のdd（テキスト）の開始位置を揃える */
+.ai-list .list dt {
+  width: 15em; /* 年月の文字数に合わせて、dtの横幅を固定する */
+  flex-shrink: 0; /* 画面幅が狭くなってもdtが縮まないようにする */
+}
+
+/* アイコンSVG */
+
+.aicon {
+  display: flex;
+  align-items: center; /* 縦方向の中央に揃える */
+}
+
+.aicon p {
+  margin-bottom: 0; /* pタグが初期で持っていた下の余白（座布団）を取り除く */
+  line-height: 1; /* 行間（上着）を脱がせて、文字本来の高さにする */
+}
+
+.ai-icon {
+  width: 20px;
+  margin-right: 0.5em; /* 文字とアイコンがくっつきすぎないように少し隙間を空ける */
+}
+
+/* スマホ表示（画面幅500px以下）の時は縦並びにする */
+@media (max-width: 500px) {
+  .ai-list .list {
+    flex-direction: column; /* 横並びのルールを上書きして、縦並びに変更する */
+  }
+
+  .ai-list .list dt {
+    width: auto; /* スマホではもう横幅の固定は不要なので、autoに戻してやる */
+    padding-bottom: 0; /* 次のddとの隙間が広くなりすぎないよう調整 */
+  }
+  .aicon {
+    padding-left: 2em;
+  }
+}
+
+/* ーーーーー
+スタンスについて
+ーーーーー */
+
+/* リスト */
+.about-list {
+  list-style-type: disc;
+  padding-left: 1.5em;
+}
+
+.about-list li {
+  margin-bottom: 0.5em;
+}
+
+/* 続きを読む */
+
+.read-more {
+  position: relative;
+}
+
+.read-more .about-list {
+  position: relative;
+  max-height: 100px; /* 開く前に見せたい高さを指定 */
+  /* margin-bottom: 10px; */
+  overflow: hidden;
+  transition: max-height 1s;
+}
+
+.read-more:has(:checked) .about-list {
+  max-height: 300vh;
+}
+
+.read-more .about-list::after {
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background: linear-gradient(
+    180deg,
+    hsla(0, 0%, 100%, 0) 0,
+    hsla(0, 0%, 96%, 1) 50%,
+    hsla(0, 0%, 96%, 1) 0,
+    #f6f6f6
+  );
+  content: "";
+}
+
+.read-more:has(:checked) .about-list::after {
+  content: none;
+}
+
+.read-more label {
+  display: flex;
+  align-items: center;
+  gap: 0 4px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.4em 1.2em;
+  border-radius: 1px;
+  background-color: var(--blue);
+  color: var(--white);
+  font-size: 0.8em;
+}
+
+.read-more label:hover {
+  border: 1px solid var(--sub2);
+  background-color: var(--sub2);
+  color: var(--blue);
+  cursor: pointer;
+}
+
+.read-more:has(:checked) label {
+  display: none;
+}
+
+.read-more label::after {
+  display: inline-block;
+  width: 10px;
+  height: 5px;
+  background-color: var(--white);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  content: "";
+}
+
+.read-more label:hover::after {
+  background-color: var(--white);
+}
+
+.read-more input {
+  display: none;
+}
+
+/* ーーーーー
+紹介
+ーーーーー */
+
+/* ボックス */
+
+.box-013 {
+  max-width: 100%;
+  margin: 0 auto 20px;
+  border: 2px solid var(--blue);
+  border-radius: 3px;
+  display: flex;
+}
+
+.left {
+  width: 30%;
+  height: auto;
+  position: relative; /* 基準値とする */
+  overflow: hidden; /* はみ出た部分を非表示 */
+  flex-shrink: 0; /* flexを指定した親要素の中で、この要素が縮まないようにする */
+}
+
+.left img {
+  position: absolute; /* 相対位置に指定 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 画像の表示サイズを調整 ※IE非対応 */
+}
+
+.box-013 span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5em 0;
+  background-color: var(--blue);
+  color: var(--white);
+  font-weight: 600;
+}
+
+.box-013 p {
+  margin: 0;
+  padding: 1em 1.5em;
+  color: var(--black);
+}
+
+/* アコーディオンメニュー */
+
+.accordion-004 {
+  max-width: 100%;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  border: 2px solid var(--blue);
+  border-radius: 5px;
+}
+
+.accordion-004 summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding: 1em 2em;
+  color: var(--blue);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.accordion-004 summary::-webkit-details-marker {
+  display: none;
+}
+
+.accordion-004 summary::after {
+  transform: translateY(-25%) rotate(45deg);
+  width: 7px;
+  height: 7px;
+  margin-left: 10px;
+  border-bottom: 3px solid var(--blue);
+  border-right: 3px solid var(--blue);
+  content: "";
+  transition: transform 0.3s;
+}
+
+.accordion-004[open] summary::after {
+  transform: rotate(225deg);
+}
+
+.accordion-004 .open {
+  transform: translateY(-10px);
+  opacity: 0;
+  margin: 0;
+  padding: 0.3em 2em 1.5em;
+  color: var(--black);
+  transition:
+    transform 0.5s,
+    opacity 0.5s;
+}
+
+.accordion-004[open] .open {
+  transform: none;
+  opacity: 1;
+}
+
+h4 {
+  color: var(--blue);
+  margin-bottom: 0.3em;
+}
+
+.claude::before {
+  /* ①まずは絶対に必要な「空の箱」を生成する */
+  content: "";
+
+  /* ②箱に「幅」と「高さ」を持たせるための魔法 */
+  display: inline-block;
+
+  /* ③ここで好きなサイズを指定する（必ず縦横両方書くこと！） */
+  width: 20px;
+  height: 20px;
+
+  /* ④背景として画像を読み込む */
+  background-image: url(../img/claude-ai-icon.svg);
+
+  /* ⑤箱のサイズ（20px）に合わせて、画像をピッタリ収める */
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  /* ⑥テキストとの距離と、縦のズレを調整する */
+  margin-right: 0.5em;
+  vertical-align: middle; /* これを入れると文字とアイコンの高さが綺麗に揃うぞ */
+}
+
+.gemini::before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-image: url(../img/gemini.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 0.5em;
+  vertical-align: middle;
+}
+
+.gpt::before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-image: url(../img/openai.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 0.5em;
+  vertical-align: middle;
+}
+
+.grok::before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-image: url(../img/grok-light.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 0.5em;
+  vertical-align: middle;
+}
+
+/* タブレット表示 */
+@media (max-width: 768px) {
+  .box-013 {
+    max-width: 100%;
+  }
+
+  .accordion-004 {
+    max-width: 100%;
+  }
+}
+
+/* スマホ表示 */
+@media (max-width: 500px) {
+  .box-013 {
+    flex-direction: column;
+    max-width: 100%;
+  }
+  .left {
+    width: 100%;
+    height: 150px;
+  }
+}
+
+/* ーーーーー
+リンク
+ーーーーー */
+
+/* リンクリスト */
+
+.link-list .list02 {
+  display: flex;
+  align-items: center; /* 縦の真ん中を揃える魔法を追加 */
+  margin-bottom: 1.5em; /* ついでに、リスト項目同士の縦の隙間もここで持たせると綺麗だぞ */
+}
+
+.link-list .list02 dt,
+.link-list .list02 dd {
+  padding: 5px;
+}
+
+.link-list .list02 dt {
+  width: 250px;
+  flex-shrink: 0;
+}
+
+/* リンクボタン */
+
+.button-3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  margin: 0 auto;
+  margin-bottom: 1em;
+  padding: 0.9em 2em;
+  border: 1px solid var(--black);
+  border-radius: 5px;
+  background-color: var(--sub2);
+  color: var(--black);
+  font-size: 1em;
+}
+
+.button-3:hover {
+  border: none;
+  background-color: var(--sub1);
+  color: var(--pink);
+  font-weight: 600;
+}
+
+.list02 p {
+  margin-bottom: 0;
+  line-height: 1;
+}
+
+/* 「.list02」の中にある「.button-3」限定で、下余白をゼロにするという上書き命令 */
+.link-list .list02 .button-3 {
+  margin-bottom: 0;
+}
+
+/* スマホ表示 */
+@media (max-width: 500px) {
+  .link-list .list02 dt {
+    width: 150px;
+  }
+
+  .list02 p {
+    font-size: 0.8em;
+  }
+
+  .button-3 {
+    width: 120px;
+    font-size: 0.8em;
+  }
+}
+
+/* ーーーーー
+フッターここから
+ーーーーー */
+
+footer {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  padding: 25px 10px 10px;
+  background-color: var(--sub1);
+  color: var(--white);
+}
