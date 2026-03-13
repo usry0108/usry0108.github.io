@@ -657,6 +657,7 @@ h4 {
 
   .list02 p {
     font-size: 0.8em;
+    letter-spacing: 0.1em;
   }
 
   .button-3 {
@@ -677,4 +678,8 @@ footer {
   padding: 25px 10px 10px;
   background-color: var(--sub1);
   color: var(--white);
+}
+
+small {
+  font-size: 0.7em;
 }
