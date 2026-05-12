@@ -34,7 +34,8 @@ body::before {
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: -1; /* 他の要素の邪魔にならないよう、一番奥の設定値（マイナス）にする */
+  z-index: -1;
+  /* 他の要素の邪魔にならないよう、一番奥の設定値（マイナス）にする */
 
   /* 背景画像の設定はそのまま移植 */
   background-image: url(../img/back-img.jpg);
@@ -115,7 +116,9 @@ header {
   transform: rotate(225deg);
 }
 
-.accordion p {
+.accordion p,
+.about-list,
+h3 {
   transform: translateY(-10px);
   opacity: 0;
   margin: 0;
@@ -126,9 +129,25 @@ header {
     opacity 0.5s;
 }
 
-.accordion[open] p {
+.accordion[open] p,
+.about-list,
+h3 {
   transform: none;
   opacity: 1;
+}
+
+.about {
+  line-height: 1.6;
+}
+
+.about-list {
+  list-style-type: disc;
+  padding-left: 1.5em;
+  padding-bottom: 1.5em;
+}
+
+.about-list li {
+  margin-bottom: 0.3em;
 }
 
 /* ーーーーー
@@ -155,7 +174,8 @@ header {
 .copy-text-box {
   /* ここで一定の大きさを決める */
   width: 100%;
-  height: 120px; /* ここの数値を変えれば枠の高さが変わる */
+  height: 120px;
+  /* ここの数値を変えれば枠の高さが変わる */
 
   /* 縦（y軸）にはみ出た分をスクロールさせる */
   overflow-y: auto;
@@ -195,8 +215,10 @@ header {
 }
 
 .copy-btn.copied {
-  background-color: var(--pink); /* クリック済みっぽく少し色を薄くする、など */
-  cursor: default; /* クリックできないようなカーソルにする */
+  background-color: var(--pink);
+  /* クリック済みっぽく少し色を薄くする、など */
+  cursor: default;
+  /* クリックできないようなカーソルにする */
 }
 
 /* タイトル */
